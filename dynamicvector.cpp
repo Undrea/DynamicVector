@@ -188,11 +188,14 @@ void DynamicVector<T>::insert(const T& value, const unsigned int insert_index)
 			// If there were elements in the vector, copy elements from the old list to the new list
 			if (curr_size >= 1)
 			{
-				memcpy(new_arr, arr, insert_index * sizeof(T));	// Copy the first half of the array, insert_index number of values.
+				// Copy the first half of the array, insert_index number of values.
+				memcpy(new_arr, arr, insert_index * sizeof(T));
 
-				new_arr[insert_index] = value;					// Insert the new value.
+				// Insert the new value.
+				new_arr[insert_index] = value;			
 
-				memcpy(	&new_arr[insert_index + 1],				// Starting after the new value, copy over the remainder of the array.
+				// Starting after the new value, copy over the remainder of the array.
+				memcpy(	&new_arr[insert_index + 1],
 						&arr[insert_index],
 						(curr_size - insert_index)* sizeof(T));
 			}
@@ -256,7 +259,7 @@ void DynamicVector<T>::nullify()
 	// Reinitialize.
 	curr_size	= 0;
 	capacity	= 0;
-	arr			= nullptr;
+	arr		= nullptr;
 }
 
 template class DynamicVector<string>;
