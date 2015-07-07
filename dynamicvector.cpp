@@ -196,8 +196,8 @@ void DynamicVector<T>::insert(const T& value, const unsigned int insert_index)
 
 				// Starting after the new value, copy over the remainder of the array.
 				memcpy(	&new_arr[insert_index + 1],
-						&arr[insert_index],
-						(curr_size - insert_index)* sizeof(T));
+					&arr[insert_index],
+					(curr_size - insert_index)* sizeof(T));
 			}
 			else // else curr_size == 0. We insert the first element.
 			{
